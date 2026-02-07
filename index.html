@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner Home | Your Name</title>
+  <meta name="description" content="A simple, modern runner homepage with goals, stats, and recent runs." />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#101826;
+      --card2:#0f172a;
+      --text:#e6edf7;
+      --muted:#9fb0c7;
+      --accent:#67e8f9;
+      --accent2:#a78bfa;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(103,232,249,.10), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(167,139,250,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,20,.85), rgba(11,15,20,.55));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 24px; max-width:var(--max); margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(103,232,249,.9), rgba(167,139,250,.9));
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+    .brand strong{letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:-2px}
+    .links{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    }
+    .links a{
+      text-decoration:none; color:var(--muted); font-weight:600; font-size:14px;
+      padding:8px 10px; border-radius:12px;
+    }
+    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:10px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(103,232,249,.20), rgba(167,139,250,.18));
+      border:1px solid rgba(103,232,249,.25);
+      box-shadow: var(--shadow);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .hero{
+      padding:54px 0 24px;
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr; padding-top:32px}
+      .links{display:none}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(16,24,38,.92), rgba(15,23,42,.88));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.1;
+      letter-spacing:-.5px;
+    }
+    .sub{
+      margin:14px 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:60ch;
+    }
+    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      background:rgba(255,255,255,.04);
+    }
+    .accent{
+      color:var(--text);
+      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.12));
+      border-color: rgba(103,232,249,.25);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .col-4{grid-column: span 4}
+    .col-6{grid-column: span 6}
+    .col-12{grid-column: span 12}
+    @media (max-width: 900px){
+      .col-4,.col-6{grid-column: span 12}
+    }
+    .metric{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:14px;
+    }
+    .metric .k{color:var(--muted); font-weight:700; font-size:13px}
+    .metric .v{font-size:24px; font-weight:900; letter-spacing:-.3px}
+    .small{font-size:12px; color:var(--muted)}
+    .divider{height:1px; background:var(--border); margin:14px 0}
+    .list{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .run{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
+      display:flex; justify-content:space-between; gap:12px; align-items:center;
+    }
+    .run strong{display:block}
+    .run .meta{color:var(--muted); font-size:12px; margin-top:2px}
+    .tag{
+      font-size:12px; font-weight:800;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(103,232,249,.25);
+      background: rgba(103,232,249,.10);
+      white-space:nowrap;
+    }
+    footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+    /* simple progress bar */
+    .bar{
+      height:10px; border-radius:999px; background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .bar > div{
+      height:100%;
+      width:62%;
+      background: linear-gradient(90deg, rgba(103,232,249,.9), rgba(167,139,250,.85));
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
+    }
+    .icon{
+      width:18px; height:18px; display:inline-block;
+      background: currentColor;
+      mask-size: contain; mask-repeat: no-repeat; mask-position: center;
+      -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+      opacity:.9;
+    }
+    .i-bolt{ mask-image: linear-gradient(#000,#000); -webkit-mask-image: linear-gradient(#000,#000);}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>Your Name</strong>
+          <span>Runner • Training Log</span>
+        </div>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#goals">Goals</a>
+        <a href="#stats">Stats</a>
+        <a href="#recent">Recent Runs</a>
+        <a href="#plan">Weekly Plan</a>
+      </nav>
+
+      <a class="btn primary" href="#plan">Start Today →</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <h1>Run smart. <span style="color:var(--accent)">Stay consistent.</span></h1>
+        <p class="sub">
+          Welcome to my running home base — goals, weekly plan, and a simple log that keeps me honest.
+          No fluff. Just miles, effort, and progress.
+        </p>
+
+        <div class="pillrow">
+          <div class="pill accent">Current focus: 10K speed</div>
+          <div class="pill">Consistency > motivation</div>
+          <div class="pill">Train • Recover • Repeat</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#recent">View recent runs</a>
+          <a class="btn" href="#goals">See goals</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="small">
+          Tip: replace the sample stats & runs below with your real data (Strava, GPX, or manual logs).
+        </div>
+      </div>
+
+      <aside class="card" id="goals">
+        <h2 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">Goal Dashboard</h2>
+
+        <div class="metric">
+          <div>
+            <div class="k">Primary Goal</div>
+            <div class="v">10K @ 45:00</div>
+            <div class="small">Target pace: 4:30/km</div>
+          </div>
+          <div class="tag">In progress</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="k" style="font-weight:800; margin-bottom:8px;">Progress</div>
+        <div class="bar" aria-label="progress bar"><div></div></div>
+        <div class="small" style="margin-top:8px;">62% toward current training block</div>
+
+        <div class="divider"></div>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="k">This week</div>
+            <div class="v" style="font-size:22px;">26.4 km</div>
+            <div class="small">5 runs • 1 workout</div>
+          </div>
+          <div class="col-6">
+            <div class="k">Longest run</div>
+            <div class="v" style="font-size:22px;">10.0 km</div>
+            <div class="small">Easy effort</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- STATS -->
+    <section class="grid" id="stats" aria-label="Stats">
+      <div class="card col-4">
+        <div class="metric">
+          <div>
+            <div class="k">Best 5K</div>
+            <div class="v">—:—</div>
+            <div class="small">Update when you race</div>
+          </div>
+          <div class="tag">PR</div>
+        </div>
+      </div>
+
+      <div class="card col-4">
+        <div class="metric">
+          <div>
+            <div class="k">Best 10K</div>
+            <div class="v">—:—</div>
+            <div class="small">Chasing sub-45</div>
+          </div>
+          <div class="tag">PR</div>
+        </div>
+      </div>
+
+      <div class="card col-4">
+        <div class="metric">
+          <div>
+            <div class="k">Easy pace</div>
+            <div class="v">6:00–6:45</div>
+            <div class="small">per km (sample)</div>
+          </div>
+          <div class="tag">Zone 2</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT RUNS -->
+    <section class="grid" id="recent" aria-label="Recent Runs">
+      <div class="card col-12">
+        <h2 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">Recent Runs</h2>
+        <p class="small" style="margin:0 0 14px;">
+          Replace these with your latest activities (date • distance • time • effort).
+        </p>
+
+        <div class="list">
+          <div class="run">
+            <div>
+              <strong>Easy Run • 6.0 km</strong>
+              <div class="meta">Feb 6 • 40:20 • RPE 4/10</div>
+            </div>
+            <div class="tag">Easy</div>
+          </div>
+
+          <div class="run">
+            <div>
+              <strong>Intervals • 5 × 800m</strong>
+              <div class="meta">Feb 4 • 52:10 • RPE 8/10</div>
+            </div>
+            <div class="tag">Speed</div>
+          </div>
+
+          <div class="run">
+            <div>
+              <strong>Long Run • 10.0 km</strong>
+              <div class="meta">Feb 2 • 1:06:40 • RPE 5/10</div>
+            </div>
+            <div class="tag">Long</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY PLAN -->
+    <section class="grid" id="plan" aria-label="Weekly Plan">
+      <div class="card col-6">
+        <h2 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">Weekly Plan</h2>
+        <div class="small" style="margin-bottom:12px;">
+          A simple structure: 2 easy, 1 speed, 1 tempo, 1 long (adjust to your schedule).
+        </div>
+
+        <div class="list">
+          <div class="run"><div><strong>Mon</strong><div class="meta">Easy 30–45 min + mobility</div></div><div class="tag">Easy</div></div>
+          <div class="run"><div><strong>Tue</strong><div class="meta">Speed session (intervals)</div></div><div class="tag">Speed</div></div>
+          <div class="run"><div><strong>Wed</strong><div class="meta">Easy 30–45 min</div></div><div class="tag">Easy</div></div>
+          <div class="run"><div><strong>Thu</strong><div class="meta">Tempo / threshold</div></div><div class="tag">Tempo</div></div>
+          <div class="run"><div><strong>Sat</strong><div class="meta">Long run 60–90 min</div></div><div class="tag">Long</div></div>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <h2 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">Notes & Recovery</h2>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Easy days should feel easy. Keep them honest.</li>
+          <li>One hard session at a time — don’t stack intensity back-to-back.</li>
+          <li>Sleep + protein + hydration = faster recovery.</li>
+          <li>If you feel beat up, cut volume before cutting consistency.</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h3 style="margin:0 0 8px; font-size:16px;">Call to action</h3>
+        <p class="small" style="margin:0 0 12px;">
+          Want this page to auto-update from your runs? I can help you plug in GPX/Strava exports and render them here.
+        </p>
+        <a class="btn primary" href="#recent">Update my log →</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name • Built for consistency.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
