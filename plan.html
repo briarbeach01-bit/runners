@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4-Week Plan | Beginner Runner Hub</title>
+  <style>
+    :root{--bg:#0b1220;--card:#101b33;--text:#eef3ff;--muted:#a9b6d3;--border:rgba(255,255,255,.10);--radius:16px;--max:980px;--shadow:0 12px 28px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(11,18,32,.78);border-bottom:1px solid var(--border)}
+    .nav{max-width:var(--max);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .dot{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg, rgba(125,211,252,.9), rgba(99,102,241,.6))}
+    .brand strong{letter-spacing:.2px}
+    .brand span{display:block;font-size:12px;color:var(--muted);margin-top:-2px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    nav a{text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;padding:8px 10px;border-radius:12px}
+    nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px}
+    .card{background:rgba(16,27,51,.88);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+    h1{margin:0;font-size:28px;letter-spacing:-.3px}
+    .muted{color:var(--muted)}
+    .week{margin-top:12px;border:1px solid var(--border);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+    .row{display:grid;grid-template-columns: 120px 1fr; gap:10px; padding:8px 0; border-top:1px solid var(--border)}
+    .row:first-child{border-top:none}
+    .day{font-weight:1000}
+    footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html"><div class="dot"></div><div><strong>Beginner Runner Hub</strong><span>Simple starter plan</span></div></a>
+      <nav>
+        <a href="pace.html">Pace Calculator</a>
+        <a href="tips.html">Beginner Tips</a>
+        <a href="plan.html" style="color:var(--text); background:rgba(255,255,255,.06)">4-Week Plan</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>4-Week Beginner Plan (3 runs/week)</h1>
+      <p class="muted">
+        Goal: build a habit, avoid injury, finish each run feeling “okay.”
+        If you’re brand new, use run/walk (example: run 2 min, walk 1 min).
+      </p>
+
+      <div class="week">
+        <strong>Week 1</strong>
+        <div class="row"><div class="day">Run A</div><div class="muted">20–25 min easy (run/walk if needed)</div></div>
+        <div class="row"><div class="day">Run B</div><div class="muted">20–25 min easy</div></div>
+        <div class="row"><div class="day">Run C</div><div class="muted">25–30 min easy</div></div>
+      </div>
+
+      <div class="week">
+        <strong>Week 2</strong>
+        <div class="row"><div class="day">Run A</div><div class="muted">25 min easy</div></div>
+        <div class="row"><div class="day">Run B</div><div class="muted">25 min easy</div></div>
+        <div class="row"><div class="day">Run C</div><div class="muted">30–35 min easy</div></div>
+      </div>
+
+      <div class="week">
+        <strong>Week 3</strong>
+        <div class="row"><div class="day">Run A</div><div class="muted">25–30 min easy</div></div>
+        <div class="row"><div class="day">Run B</div><div class="muted">25–30 min easy + 4 × 20 sec “faster” (optional)</div></div>
+        <div class="row"><div class="day">Run C</div><div class="muted">35–40 min easy</div></div>
+      </div>
+
+      <div class="week">
+        <strong>Week 4</strong>
+        <div class="row"><div class="day">Run A</div><div class="muted">30 min easy</div></div>
+        <div class="row"><div class="day">Run B</div><div class="muted">30 min easy + 6 × 20 sec “faster” (optional)</div></div>
+        <div class="row"><div class="day">Run C</div><div class="muted">40–45 min easy</div></div>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        Optional on non-run days: 10–20 minutes brisk walking, light strength, or mobility.
+      </p>
+    </section>
+
+    <footer><a class="muted" href="index.html">← Back to home</a></footer>
+  </main>
+</body>
+</html>

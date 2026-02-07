@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | Beginner Runner Hub</title>
+  <style>
+    :root{--bg:#0b1220;--card:#101b33;--text:#eef3ff;--muted:#a9b6d3;--border:rgba(255,255,255,.10);--radius:16px;--max:980px;--shadow:0 12px 28px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(11,18,32,.78);border-bottom:1px solid var(--border)}
+    .nav{max-width:var(--max);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .dot{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg, rgba(125,211,252,.9), rgba(99,102,241,.6))}
+    .brand strong{letter-spacing:.2px}
+    .brand span{display:block;font-size:12px;color:var(--muted);margin-top:-2px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    nav a{text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;padding:8px 10px;border-radius:12px}
+    nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px}
+    .card{background:rgba(16,27,51,.88);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+    h1{margin:0;font-size:28px;letter-spacing:-.3px}
+    .muted{color:var(--muted)}
+    details{border:1px solid var(--border);border-radius:14px;padding:12px;background:rgba(255,255,255,.03);margin-top:10px}
+    summary{cursor:pointer;font-weight:1000}
+    footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html"><div class="dot"></div><div><strong>Beginner Runner Hub</strong><span>Answers in plain English</span></div></a>
+      <nav>
+        <a href="pace.html">Pace Calculator</a>
+        <a href="tips.html">Beginner Tips</a>
+        <a href="plan.html">4-Week Plan</a>
+        <a href="faq.html" style="color:var(--text); background:rgba(255,255,255,.06)">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>FAQ</h1>
+      <p class="muted">Short answers to common beginner questions.</p>
+
+      <details open>
+        <summary>How many days per week should I run?</summary>
+        <p class="muted">Start with 2–3 days/week. More days can wait. Consistency matters most.</p>
+      </details>
+
+      <details>
+        <summary>Should I run fast to get fit faster?</summary>
+        <p class="muted">Not at first. Running too hard often leads to quitting or injury. Start easy, add speed later.</p>
+      </details>
+
+      <details>
+        <summary>What if my pace is “slow”?</summary>
+        <p class="muted">Totally normal. Pace improves with time. The goal is finishing the run feeling okay.</p>
+      </details>
+
+      <details>
+        <summary>How do I know if it’s an easy run?</summary>
+        <p class="muted">You can talk in full sentences. If you’re gasping, slow down or add walk breaks.</p>
+      </details>
+
+      <details>
+        <summary>Do I need fancy gear?</summary>
+        <p class="muted">No. Comfortable shoes and breathable clothes are enough. The habit is the upgrade.</p>
+      </details>
+    </section>
+
+    <footer><a class="muted" href="index.html">← Back to home</a></footer>
+  </main>
+</body>
+</html>
